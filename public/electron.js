@@ -2,7 +2,29 @@
 const path = require('path');
 
 const { app, BrowserWindow } = require('electron');
+const sqlite3 = require('sqlite3').verbose();
 const isDev = require('electron-is-dev');
+
+// Initialize SQLite database
+const db = new sqlite3.Database('../src/Db/pos.db', (err) => {
+  if (err) console.error('Database opening error: ', err);
+});
+
+// Example function to create a table and insert data
+function createTableAndInsert() {
+  db.serialize(() => {
+      // Create a table
+      db.run("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)");
+
+      // Insert data
+      db.run("INSERT INTO users (name) VALUES (?)", ['John Doe'], function(err) {
+          if (err) {
+              return console.error(err.message);
+          }
+          console.log(`A row has been inserted with rowid ${this.lastID}`);
+      });
+  });
+}
 
 function createWindow() {
   // Create the browser window.
