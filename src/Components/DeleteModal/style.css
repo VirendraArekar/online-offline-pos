@@ -1,0 +1,12 @@
+.close-btn {
+    position: absolute ;
+    right: -10;
+    top: -10;
+    background-color: '#FFFFFF';
+    border-radius: 20
+}
+
+.close-btn:hover {
+    cursor: pointer;
+    background-color: azure;
+}

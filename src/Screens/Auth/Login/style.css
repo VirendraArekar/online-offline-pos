@@ -1,0 +1,18 @@
+.phone-input{
+    border: 0 white !important;
+    outline: 0 !important;
+    width: 100% !important;
+    height: 40px !important;
+}
+
+.slide_img{
+    height:500px;
+    }
+    .slide_box{
+      padding-top: 20px;
+    }
+
+
+.btn-other:hover{
+  background-color: lightgray !important;
+}
